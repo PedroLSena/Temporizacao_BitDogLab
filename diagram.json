@@ -1,0 +1,66 @@
+{
+    "version": 1,
+    "author": "Uri Shaked",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "wokwi-pi-pico",
+        "id": "pico",
+        "top": 20,
+        "left": 60,
+        "attrs": { "env": "arduino-community" }
+      },
+      { "type": "wokwi-led", "id": "led1", "top": 73.2, "left": -25, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 130.8,
+        "left": -25,
+        "attrs": { "color": "green" }
+      },
+      { "type": "wokwi-led", "id": "led2", "top": 25.2, "left": -25, "attrs": { "color": "blue" } },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 253.55,
+        "left": -28.8,
+        "attrs": { "value": "330000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 234.35,
+        "left": -28.8,
+        "attrs": { "value": "330000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 205.55,
+        "left": -28.8,
+        "attrs": { "value": "330000" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn1",
+        "top": 7.4,
+        "left": 19.2,
+        "attrs": { "color": "green" }
+      }
+    ],
+    "connections": [
+      [ "$serialMonitor:RX", "pico:GP0", "", [] ],
+      [ "led3:A", "pico:GP13", "green", [ "h28.8", "v13.55" ] ],
+      [ "led1:A", "pico:GP12", "green", [ "h28.8", "v61.55" ] ],
+      [ "led2:A", "pico:GP11", "green", [ "h28.8", "v99.95" ] ],
+      [ "led2:C", "r3:1", "green", [ "h-66.8", "v144" ] ],
+      [ "led1:C", "r2:1", "green", [ "h-57.2", "v124.8" ] ],
+      [ "led3:C", "r1:1", "green", [ "h-47.6", "v86.4" ] ],
+      [ "r3:2", "pico:GND.4", "green", [ "v0" ] ],
+      [ "r2:2", "pico:GND.4", "green", [ "h8.4", "v-44.05" ] ],
+      [ "r1:2", "pico:GND.4", "green", [ "h18", "v-63.25" ] ],
+      [ "btn1:1.r", "pico:GND.1", "green", [ "h10.4", "v42.35" ] ],
+      [ "btn1:2.r", "pico:GP5", "green", [ "h0.8", "v61.95" ] ]
+    ],
+    "dependencies": {}
+  }
